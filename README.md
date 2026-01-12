@@ -1,11 +1,13 @@
-# GrantSwarm: Hard Hack — RISC-V Compute Track
+# RISC-V Computer Prototype (Hard Hack)
 ### Amadeus Genesis Hack Submission
 
-**Project Title:** AMA-Style MatMul Solver for Tenstorrent Hardware  
+**Project Title:** AMA-Style MatMul Solver for Tenstorrent Hardware  
 **Track:** Hard Hack (RISC-V Compute)
 
 ## Overview
-A high-performance Matrix Multiplication (MatMul) solver optimized for RISC-V architectures and Tenstorrent hardware. This project implements AMA-style compute workloads, focusing on efficient data tiling and low-level performance engineering to maximize throughput on the N300s (Wormhole) architecture.
+A high-performance Matrix Multiplication (MatMul) solver prototype optimized for RISC-V architectures and Tenstorrent hardware. This project implements AMA-style compute workloads, focusing on efficient data tiling and low-level performance engineering to maximize throughput on the N300s (Wormhole) architecture.
+
+
 
 ## Technical Implementation
 - **Hardware Target:** Tenstorrent RISC-V Compute Nodes via Koyeb (N300s/Wormhole).
@@ -15,7 +17,7 @@ A high-performance Matrix Multiplication (MatMul) solver optimized for RISC-V ar
   - **Memory Management:** Minimized host-to-device data movement to eliminate bus latency.
 
 ## Evidence of Success
-The project was successfully deployed in a privileged Docker environment on Koyeb, accessing the Tenstorrent hardware directly. 
+The prototype was successfully deployed in a privileged Docker environment on Koyeb, accessing the Tenstorrent hardware directly. 
 
 ![Deployment Logs](logs_screenshot.png)
 
