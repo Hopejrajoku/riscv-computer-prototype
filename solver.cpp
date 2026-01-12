@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <thread>
+#include <chrono>
 
 // BLOCK_SIZE is the "Tile" size. 
 // For Tenstorrent RISC-V, 32 or 64 is usually the sweet spot for SRAM.
@@ -45,7 +47,9 @@ int main() {
         std::cout << "Size " << N << " took " << elapsed.count() << "s" << std::endl;
     }
 
-    std::cout << "🏁 All benchmarks complete. Entering idle state..." << std::endl;
-    while(true) { sleep(1000); } // Keeps the Koyeb service "Healthy"
-    return 0;
+    std::cout << "All benchmarks complete. Entering idle state..." << std::endl;
+    while(true) { 
+        std::this_thread::sleep_for(std::chrono::hours(1)); 
+    }
+        return 0;
 }
