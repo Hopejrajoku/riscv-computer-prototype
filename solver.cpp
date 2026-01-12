@@ -29,21 +29,23 @@ void tiled_matmul(int N, const std::vector<float>& A, const std::vector<float>& 
 }
 
 int main() {
-    int N = 512; // Matrix size (N x N)
-    std::vector<float> A(N * N, 1.0f);
-    std::vector<float> B(N * N, 2.0f);
-    std::vector<float> C(N * N, 0.0f);
-
-    std::cout << "Starting Hard Hack MatMul (N=" << N << ", Tile=" << BLOCK_SIZE << ")..." << std::endl;
+    std::vector<int> sizes = {512, 1024, 2048};
     
-    auto start = std::chrono::high_resolution_clock::now();
-    tiled_matmul(N, A, B, C);
-    auto end = std::chrono::high_resolution_clock::now();
+    for (int N : sizes) {
+        std::vector<float> A(N * N, 1.0f);
+        std::vector<float> B(N * N, 2.0f);
+        std::vector<float> C(N * N, 0.0f);
 
-    std::chrono::duration<double> elapsed = end - start;
-    std::cout << "Compute Workload Complete on Tenstorrent Instance." << std::endl;
-    std::cout << "Time Taken: " << elapsed.count() << " seconds." << std::endl;
-    std::cout << "Top-left result: " << C[0] << " (Expected: " << N * 2 << ")" << std::endl;
+        std::cout << "Benchmarking N=" << N << "..." << std::endl;
+        auto start = std::chrono::high_resolution_clock::now();
+        tiled_matmul(N, A, B, C);
+        auto end = std::chrono::high_resolution_clock::now();
 
+        std::chrono::duration<double> elapsed = end - start;
+        std::cout << "Size " << N << " took " << elapsed.count() << "s" << std::endl;
+    }
+
+    std::cout << "🏁 All benchmarks complete. Entering idle state..." << std::endl;
+    while(true) { sleep(1000); } // Keeps the Koyeb service "Healthy"
     return 0;
 }
