@@ -44,4 +44,3 @@ By implementing a **Tiled MatMul Solver**, we optimized the workload for the RIS
 3. **Run:** `./solver`
 
 ---
-*Built for the Amadeus Genesis Hack 2026*
