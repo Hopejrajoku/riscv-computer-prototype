@@ -19,7 +19,7 @@ A high-performance Matrix Multiplication (MatMul) solver prototype optimized for
 ## Evidence of Success
 The prototype was successfully deployed in a privileged Docker environment on Koyeb, accessing the Tenstorrent hardware directly. 
 
-![Deployment Logs](logs_screenshot.png)
+![Deployment Logs](/evidence/logs_screenshot.png)
 
 *The logs above verify 100% computational accuracy (Top-left result: 1024) and efficient scaling across different matrix dimensions.*
 
@@ -36,7 +36,7 @@ During the Amadeus Genesis Hack, we successfully achieved high-performance execu
 ### Technical Achievement
 By implementing a **Tiled MatMul Solver**, we optimized the workload for the RISC-V compute cores' local SRAM. Standard matrix multiplication logic often suffers from "Cache Thrashing," but our implementation ensures data stays close to the execution units, reducing memory latency by over 40% compared to naive implementations. This demonstrates a production-ready approach to AMA-style compute workloads.
 
-![System Metrics](overview_screenshot.png)
+![System Metrics](/evidence/overview.png)
 
 ## Getting Started
 1. **Access:** Deployment handled via `TTDEPLOY25FADEV2M`.
